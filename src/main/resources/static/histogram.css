@@ -1,0 +1,167 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding-bottom: 20px;
+}
+
+/* GENERAL STYLES */
+.grid {
+  display: grid;
+}
+
+.grid-container {
+  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid--2-cols {
+  align-items: center;
+  grid-template-columns: 30fr 70fr;
+  gap: 20px;
+}
+.container {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.heading-primary {
+  font-size: 4.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 30px 0;
+
+  /* grid */
+  grid-column: 1/-1;
+}
+
+.heading-secondary {
+  font-size: 3rem;
+  margin-bottom: 50px;
+  color: #cc0633;
+}
+
+p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.section-container {
+  background-color: #e9eff1;
+  padding: 30px;
+  height: max-content;
+}
+
+/* Section--lower bounds */
+
+.marks-box {
+  padding: 10px 20px;
+  border: 1px solid black;
+  max-width: 120px;
+  font-weight: bold;
+  background-color: #fff;
+  font-size: 2rem;
+}
+
+.section--lower-bounds label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Section--histogram */
+
+.range-box {
+  height: 24px;
+  border: 1px solid #cc0633;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.student-range {
+  width: 0;
+  height: 100%;
+  background-color: #cc0633;
+  border-radius: 100px;
+  padding: 5px 10px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Add Grade */
+
+.section--add-grade {
+  grid-column: 2/-1;
+}
+
+.grade-box {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 0;
+}
+.section--add-grade label {
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.add-record {
+  width: 40%;
+  background-color: #fff;
+  border: 1px solid #797979;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1.8rem;
+  padding: 8px 16px;
+}
+
+.btn {
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-block;
+  width: max-content;
+  padding: 12px 24px;
+  /* margin-top: 20px; */
+  color: #cc0633;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.2);
+  margin-left: 60px;
+  cursor: pointer;
+}
+
+.section--lower-bounds {
+  grid-row: 2 / 4;
+}
+
+/* responsive */
+@media (max-width: 992px) {
+  .add-record {
+    width: 70%;
+  }
+}
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .section--lower-bounds {
+    grid-column: 1/-1;
+  }
+  .section--histogram {
+    grid-column: 1/-1;
+  }
+  .section--add-grade {
+    grid-column: 1/-1;
+  }
+  .add-record {
+    width: 40%;
+  }
+}
