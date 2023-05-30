@@ -54,7 +54,7 @@ const updateHistogram = function () {
     const grade = labels[i].textContent;
     const studentRange = studentRanges[i];
 
-    studentRange.style.width = gradesCount[grade] * 10 + "%";
+    studentRange.style.width = gradesCount[grade] * 4 + "%";
     studentRange.textContent = gradesCount[grade];
   }
 };
@@ -63,7 +63,7 @@ updateHistogram();
 
 addGradeBtn.addEventListener("click", function () {
   const newGrade = Number(record.value);
-  if (newGrade >= 0 && newGrade <= 100) {
+  if (newGrade >= 0 && newGrade <= 100 && record.value !== "") {
     grades.push(newGrade);
     updateHistogram();
   } else {
@@ -75,7 +75,7 @@ addGradeBtn.addEventListener("click", function () {
 record.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
     const newGrade = Number(record.value);
-    if (newGrade >= 0 && newGrade <= 100) {
+    if (newGrade >= 0 && newGrade <= 100 && record.value !== "") {
       grades.push(newGrade);
       updateHistogram();
     } else {
@@ -86,7 +86,13 @@ record.addEventListener('keydown', function(e) {
 });
 
 for (let i = 0; i < lowerBoundsInputs.length; i++) {
-  lowerBoundsInputs[i].addEventListener("change", function () {
-    updateHistogram();
+  lowerBoundsInputs[i].addEventListener("change", function (e) {
+    console.log(e.value);
+    const value = lowerBoundsInputs[i].value;
+    if (value === "" || isNaN(value) || value < 0 || value > 100) {
+      alert("Please enter a valid grade between 0 and 100.");
+    } else {
+      updateHistogram();
+    }
   });
 }
